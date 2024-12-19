@@ -39,13 +39,23 @@
                 <p id="total-income">₹0</p>
             </div>
             <div class="card">
-                <h3>Left Amount</h3>
+                <h3>Savings</h3>
                 <p id="left-amount">₹0</p>
             </div>
-            <div class="card">
-                <h3>Savings</h3>
-                <p id="savings">₹0</p>
-            </div>
+        </div>
+    </section>
+
+    <!-- Add Income Section -->
+    <section id="add-income">
+        <h2>Add Income</h2>
+        <div class="form-container">
+            <form id="income-form">
+                <div class="form-group">
+                    <label for="income-amount">Amount (₹)</label>
+                    <input type="number" id="income-amount" placeholder="Enter amount" required>
+                </div>
+                <button type="submit" class="btn">Update Income</button>
+            </form>
         </div>
     </section>
 
@@ -58,7 +68,6 @@
                     <label for="date">Date</label>
                     <input type="date" id="date" required>
                 </div>
-
                 <div class="form-group">
                     <label for="category">Category</label>
                     <select id="category" required>
@@ -70,17 +79,14 @@
                         <option value="Others">Others</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="amount">Amount (₹)</label>
                     <input type="number" id="amount" placeholder="Enter amount spent" required>
                 </div>
-
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea id="description" placeholder="Add a note (e.g., Dinner with friends)" rows="3"></textarea>
                 </div>
-
                 <button type="submit" class="btn">Add Expense</button>
             </form>
         </div>
