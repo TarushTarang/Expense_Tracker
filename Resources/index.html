@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expense Tracker</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/Expense.png">
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <img src="assets/Expense.png" alt="Expense Tracker Logo" class="logo">
+        <h1>Personal Expense Tracker</h1>
+    </div>
+</header>
+
+<main>
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+        <h2>Dashboard</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Total Expenses</h3>
+                <p id="total-expenses">₹0</p>
+            </div>
+            <div class="card">
+                <h3>Most Spent On</h3>
+                <p id="most-category">-</p>
+            </div>
+            <div class="card">
+                <h3>Total Entries</h3>
+                <p id="total-entries">0</p>
+            </div>
+            <div class="card">
+                <h3>Income</h3>
+                <p id="total-income">₹0</p>
+            </div>
+            <div class="card">
+                <h3>Left Amount</h3>
+                <p id="left-amount">₹0</p>
+            </div>
+            <div class="card">
+                <h3>Savings</h3>
+                <p id="savings">₹0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Expense Section -->
+    <section id="add-expense">
+        <h2>Add Expense</h2>
+        <div class="form-container">
+            <form id="expense-form">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Amount (₹)</label>
+                    <input type="number" id="amount" placeholder="Enter amount spent" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" placeholder="Add a note (e.g., Dinner with friends)" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn">Add Expense</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Expense List Section -->
+    <section id="expense-list">
+        <h2>Expense List</h2>
+        <input type="text" id="search-expenses" placeholder="Search expenses..." class="search-bar">
+        <table>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="expense-table-body">
+            <!-- Dynamic rows will be added here -->
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <p>Made with ❤️</p>
+</footer>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
