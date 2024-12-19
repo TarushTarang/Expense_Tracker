@@ -74,6 +74,25 @@ main {
     color: #333;
 }
 
+/* Add Income section */
+#add-income {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+#add-income h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+add-income .form-container .form-group  {
+    padding-right: 102%;
+}
+
 /* Add Expense Section */
 #add-expense {
     background-color: white;
