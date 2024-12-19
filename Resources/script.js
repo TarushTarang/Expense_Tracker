@@ -1,9 +1,10 @@
 const API_BASE = 'http://localhost:8080/api/expenses';
+let totalIncome = 0;
 
 // Helper function to format ISO date to "YYYY-MM-DD"
 function formatDate(isoDate) {
     const date = new Date(isoDate);
-    return date.toISOString().split('T')[0]; // Extracts "YYYY-MM-DD"
+    return date.toISOString().split('T')[0];
 }
 
 // Update dashboard metrics
@@ -19,9 +20,13 @@ function updateDashboard() {
             const mostSpentOn = Object.keys(mostSpentCategory).reduce((a, b) => mostSpentCategory[a] > mostSpentCategory[b] ? a : b, '-');
             const totalEntries = expenses.length;
 
+            const leftAmount = totalIncome - totalExpenses;
+
             document.getElementById('total-expenses').innerText = `₹${totalExpenses}`;
-            document.getElementById('most-category').innerText = mostSpentOn;
+            document.getElementById('most-category').innerText = mostSpentOn || '-';
             document.getElementById('total-entries').innerText = totalEntries;
+            document.getElementById('total-income').innerText = `₹${totalIncome}`;
+            document.getElementById('left-amount').innerText = `₹${leftAmount}`;
         });
 }
 
@@ -53,7 +58,7 @@ function fetchExpenses() {
 document.getElementById('expense-form').addEventListener('submit', event => {
     event.preventDefault();
 
-    const date = document.getElementById('date').value; // Already in "YYYY-MM-DD"
+    const date = document.getElementById('date').value;
     const category = document.getElementById('category').value;
     const amount = parseFloat(document.getElementById('amount').value);
     const description = document.getElementById('description').value;
@@ -72,6 +77,17 @@ document.getElementById('expense-form').addEventListener('submit', event => {
             updateDashboard();
             fetchExpenses();
         });
+});
+
+// Add income
+document.getElementById('income-form').addEventListener('submit', event => {
+    event.preventDefault();
+
+    const incomeAmount = parseFloat(document.getElementById('income-amount').value);
+    totalIncome += incomeAmount;
+
+    document.getElementById('income-form').reset();
+    updateDashboard();
 });
 
 // Delete an expense
